@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-phos-primary: #13322C;
+  --color-phos-accent: #FFCD00;
+  --color-phos-green: #16BC2E;
+  --color-phos-bg: #F9F6ED;
+}
+
+@layer base {
+  body {
+    @apply bg-phos-bg text-phos-primary selection:bg-phos-accent/30 antialiased;
+  }
+}
+
+.technical-grid {
+  background-image: radial-gradient(var(--color-phos-primary) 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+}
+
+.btn-highlight {
+  @apply bg-phos-accent text-phos-primary font-bold py-4 px-10 rounded-none hover:bg-white transition-all active:scale-[0.98] shadow-[8px_8px_0px_0px_rgba(19,50,44,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 inline-flex items-center gap-3 uppercase tracking-tighter;
+}
+
+.btn-ghost {
+  @apply border-2 border-phos-primary text-phos-primary font-bold py-4 px-10 rounded-none hover:bg-phos-primary hover:text-white transition-all active:scale-[0.98] inline-flex items-center gap-3 uppercase tracking-tighter;
+}
+
+.section-label {
+  @apply font-mono text-[10px] uppercase tracking-[0.4em] text-phos-primary/50 mb-4 block;
+}
+
+.card-technical {
+  @apply bg-white border-2 border-phos-primary p-10 rounded-none relative transition-all duration-300;
+}
+
+.card-technical::after {
+  content: '';
+  @apply absolute inset-0 bg-phos-accent translate-x-2 translate-y-2 -z-10 transition-transform duration-300;
+}
+
+.card-technical:hover::after {
+  @apply translate-x-0 translate-y-0 text-white;
+}
+
+.text-display {
+  @apply font-extrabold tracking-tight leading-[0.9] uppercase;
+}
